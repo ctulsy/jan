@@ -1,0 +1,6 @@
+ mkdir devops
+cd devops
+touch file1.txt
+
+ls
+

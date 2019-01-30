@@ -1,0 +1,421 @@
+
+admin@admin-PC MINGW32 ~/project (master)
+$ ls
+f2  f3  file1  file4
+
+admin@admin-PC MINGW32 ~/project (master)
+$ cd ..
+
+admin@admin-PC MINGW32 ~
+$ mkdir extra
+
+admin@admin-PC MINGW32 ~
+$ ls
+ AppData/
+'Application Data'@
+ Contacts/
+ Cookies@
+ Desktop/
+ Documents/
+ Downloads/
+ extra/
+ Favorites/
+ Links/
+'Local Settings'@
+ Music/
+'My Documents'@
+ NetHood@
+ NTUSER.DAT
+ ntuser.dat.LOG1
+ ntuser.dat.LOG2
+ NTUSER.DAT{6cced2f1-6e01-11de-8bed-001e0bcd1824}.TM.blf
+ NTUSER.DAT{6cced2f1-6e01-11de-8bed-001e0bcd1824}.TMContainer0000000000000000000
+1.regtrans-ms
+ NTUSER.DAT{6cced2f1-6e01-11de-8bed-001e0bcd1824}.TMContainer0000000000000000000
+2.regtrans-ms
+ ntuser.ini
+ Pictures/
+ PrintHood@
+ project/
+ Recent@
+'Saved Games'/
+ Searches/
+ SendTo@
+'Start Menu'@
+ Templates@
+ Videos/
+
+admin@admin-PC MINGW32 ~
+$ cd project
+
+admin@admin-PC MINGW32 ~/project (master)
+$ mkdir extra
+
+admin@admin-PC MINGW32 ~/project (master)
+$ ls
+extra/  f2  f3  file1  file4
+
+admin@admin-PC MINGW32 ~/project (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   file4
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+admin@admin-PC MINGW32 ~/project (master)
+$ git add .
+
+admin@admin-PC MINGW32 ~/project (master)
+$ git coomit -m "final"
+git: 'coomit' is not a git command. See 'git --help'.
+
+The most similar command is
+        commit
+
+admin@admin-PC MINGW32 ~/project (master)
+$ git commit -m "final"
+[master 7f88695] final
+ 1 file changed, 1 insertion(+)
+
+admin@admin-PC MINGW32 ~/project (master)
+$ git log
+commit 7f88695d8430ec8448fdca8db63873a15f98dc1d (HEAD -> master)
+Author: ctulsy <ctulsy@gmail.com>
+Date:   Tue Jan 29 15:46:10 2019 +0530
+
+    final
+
+commit 3218ea88c9271b8d4545f9efd41bd435bfa0bbf9
+Author: ctulsy <ctulsy@gmail.com>
+Date:   Tue Jan 29 15:42:08 2019 +0530
+
+    second upload
+
+commit 2a9875fb58065622d46a66f2bdbbdff42d03943c
+Author: ctulsy <ctulsy@gmail.com>
+Date:   Tue Jan 29 15:38:20 2019 +0530
+
+    upload
+
+admin@admin-PC MINGW32 ~/project (master)
+$ git show 7f88695d8
+commit 7f88695d8430ec8448fdca8db63873a15f98dc1d (HEAD -> master)
+Author: ctulsy <ctulsy@gmail.com>
+Date:   Tue Jan 29 15:46:10 2019 +0530
+
+    final
+
+diff --git a/file4 b/file4
+index e69de29..e94b25c 100644
+--- a/file4
++++ b/file4
+@@ -0,0 +1 @@
++this is f1 file
+
+admin@admin-PC MINGW32 ~/project (master)
+$ git log --oneline
+7f88695 (HEAD -> master) final
+3218ea8 second upload
+2a9875f upload
+
+admin@admin-PC MINGW32 ~/project (master)
+$ ls
+extra/  f2  f3  file1  file4
+
+admin@admin-PC MINGW32 ~/project (master)
+$ cd extra
+
+admin@admin-PC MINGW32 ~/project/extra (master)
+$ touch t1
+
+admin@admin-PC MINGW32 ~/project/extra (master)
+$ cd ..
+
+admin@admin-PC MINGW32 ~/project (master)
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        extra/
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+admin@admin-PC MINGW32 ~/project (master)
+$ git add .
+
+admin@admin-PC MINGW32 ~/project (master)
+$ git commit -m "extra one"
+[master cc9c1cb] extra one
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 extra/t1
+
+admin@admin-PC MINGW32 ~/project (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+admin@admin-PC MINGW32 ~/project (master)
+$ git log --oneline
+cc9c1cb (HEAD -> master) extra one
+7f88695 final
+3218ea8 second upload
+2a9875f upload
+
+admin@admin-PC MINGW32 ~/project (master)
+$ git log --since=2019-01-29
+
+admin@admin-PC MINGW32 ~/project (master)
+$ git log --since=2019-01-27
+commit cc9c1cbc28e63068a7b355d56eac70878c50a0b1 (HEAD -> master)
+Author: ctulsy <ctulsy@gmail.com>
+Date:   Tue Jan 29 15:49:18 2019 +0530
+
+    extra one
+
+commit 7f88695d8430ec8448fdca8db63873a15f98dc1d
+Author: ctulsy <ctulsy@gmail.com>
+Date:   Tue Jan 29 15:46:10 2019 +0530
+
+    final
+
+commit 3218ea88c9271b8d4545f9efd41bd435bfa0bbf9
+Author: ctulsy <ctulsy@gmail.com>
+Date:   Tue Jan 29 15:42:08 2019 +0530
+
+    second upload
+
+commit 2a9875fb58065622d46a66f2bdbbdff42d03943c
+Author: ctulsy <ctulsy@gmail.com>
+Date:   Tue Jan 29 15:38:20 2019 +0530
+
+    upload
+
+admin@admin-PC MINGW32 ~/project (master)
+$ git log --until=2019-01-29
+commit cc9c1cbc28e63068a7b355d56eac70878c50a0b1 (HEAD -> master)
+Author: ctulsy <ctulsy@gmail.com>
+Date:   Tue Jan 29 15:49:18 2019 +0530
+
+    extra one
+
+commit 7f88695d8430ec8448fdca8db63873a15f98dc1d
+Author: ctulsy <ctulsy@gmail.com>
+Date:   Tue Jan 29 15:46:10 2019 +0530
+
+    final
+
+commit 3218ea88c9271b8d4545f9efd41bd435bfa0bbf9
+Author: ctulsy <ctulsy@gmail.com>
+Date:   Tue Jan 29 15:42:08 2019 +0530
+
+    second upload
+
+commit 2a9875fb58065622d46a66f2bdbbdff42d03943c
+Author: ctulsy <ctulsy@gmail.com>
+Date:   Tue Jan 29 15:38:20 2019 +0530
+
+    upload
+
+admin@admin-PC MINGW32 ~/project (master)
+$ git log --author "ctulsy"
+commit cc9c1cbc28e63068a7b355d56eac70878c50a0b1 (HEAD -> master)
+Author: ctulsy <ctulsy@gmail.com>
+Date:   Tue Jan 29 15:49:18 2019 +0530
+
+    extra one
+
+commit 7f88695d8430ec8448fdca8db63873a15f98dc1d
+Author: ctulsy <ctulsy@gmail.com>
+Date:   Tue Jan 29 15:46:10 2019 +0530
+
+    final
+
+commit 3218ea88c9271b8d4545f9efd41bd435bfa0bbf9
+Author: ctulsy <ctulsy@gmail.com>
+Date:   Tue Jan 29 15:42:08 2019 +0530
+
+    second upload
+
+commit 2a9875fb58065622d46a66f2bdbbdff42d03943c
+Author: ctulsy <ctulsy@gmail.com>
+Date:   Tue Jan 29 15:38:20 2019 +0530
+
+    upload
+
+admin@admin-PC MINGW32 ~/project (master)
+$ git log --grep"inde"
+fatal: unrecognized argument: --grepinde
+
+admin@admin-PC MINGW32 ~/project (master)
+$ git log --grep "inde"
+
+admin@admin-PC MINGW32 ~/project (master)
+$ git log --grep="inde"
+
+admin@admin-PC MINGW32 ~/project (master)
+$ ls
+extra/  f2  f3  file1  file4
+
+admin@admin-PC MINGW32 ~/project (master)
+$ git log --grep="fi"
+commit 7f88695d8430ec8448fdca8db63873a15f98dc1d
+Author: ctulsy <ctulsy@gmail.com>
+Date:   Tue Jan 29 15:46:10 2019 +0530
+
+    final
+
+admin@admin-PC MINGW32 ~/project (master)
+$ git log --oneline
+cc9c1cb (HEAD -> master) extra one
+7f88695 final
+3218ea8 second upload
+2a9875f upload
+
+admin@admin-PC MINGW32 ~/project (master)
+$ git diff 7f88695..2a9875f
+diff --git a/f2 b/f2
+deleted file mode 100644
+index e69de29..0000000
+diff --git a/f3 b/f3
+deleted file mode 100644
+index e69de29..0000000
+diff --git a/file4 b/file4
+deleted file mode 100644
+index e94b25c..0000000
+--- a/file4
++++ /dev/null
+@@ -1 +0,0 @@
+-this is f1 file
+
+admin@admin-PC MINGW32 ~/project (master)
+$ git log --oneline --author="ctulsy" --grep="fi"
+7f88695 final
+
+admin@admin-PC MINGW32 ~/project (master)
+$
+
+
+$ history
+    1  cd desktop
+    2  cd maven practise
+    3  cd mavenpractise
+    4  ls
+    5  cd maven practise
+    6  mkdir macen
+    7  rmdir macen
+    8  mkdir maven
+    9  clear
+   10  ls
+   11  cd maven
+   12  mvn archetype:generate
+   13  mvn clean
+   14  mvn compile
+   15  mvn test
+   16  mvn package
+   17  ls
+   18  cd project code
+   19  cd projectcode
+   20  project code
+   21  cd 'project code'
+   22  mvn clean
+   23  mvn compile
+   24  cd..
+   25  cd ..
+   26  mvn compile
+   27  clear
+   28  ls
+   29  rm 'project code'
+   30  cd 'project code'
+   31  ls
+   32  tree
+   33  tree.
+   34  cd ..
+   35  cd ..
+   36  ls
+   37  cd maven
+   38  ls
+   39  mvn archetype:generate
+   40  mvn validate
+   41  1
+   42  Help 1
+   43  1
+   44  quit
+   45  exit
+   46  cd project
+   47  ls
+   48  git init
+   49  tree .git
+   50  git status
+   51  touch file1
+   52  ls
+   53  git status
+   54  git config --global user.name "ctulsy"
+   55  git config --global user.email "ctulsy@gmail.com"
+   56  git config --global core.editor "vim"
+   57  git config --global color.ui true
+   58  git config --list
+   59  git status
+   60  vi index.html
+   61  ls
+   62  git status
+   63  git add index.html
+   64  git add .index.html
+   65  git add .index.html.swp
+   66  ls
+   67  git status
+   68  git add .
+   69  git status
+   70  git commit -m "upload"
+   71  git log
+   72  git show 2a9875fb58065622d46a66f2bdbbdff42d03943c
+   73  git show
+   74  ls
+   75  touch file4 f2 f3
+   76  ls
+   77  git add .
+   78  git status
+   79  git commit -m "second upload"
+   80  git log
+   81  echo "this is f1 file">file4
+   82  ls
+   83  cd ..
+   84  mkdir extra
+   85  ls
+   86  cd project
+   87  mkdir extra
+   88  ls
+   89  git status
+   90  git add .
+   91  git coomit -m "final"
+   92  git commit -m "final"
+   93  git log
+   94  git show 7f88695d8
+   95  git log --oneline
+   96  ls
+   97  cd extra
+   98  touch t1
+   99  cd ..
+  100  git status
+  101  git add .
+  102  git commit -m "extra one"
+  103  git status
+  104  git log --oneline
+  105  git log --since=2019-01-29
+  106  git log --since=2019-01-27
+  107  git log --until=2019-01-29
+  108  git log --author "ctulsy"
+  109  git log --grep"inde"
+  110  git log --grep "inde"
+  111  git log --grep="inde"
+  112  ls
+  113  git log --grep="fi"
+  114  git log --oneline
+  115  git diff 7f88695..2a9875f
+  116  git log --oneline --author="ctulsy" --grep="fi"
+  117  git history
+  118  history
